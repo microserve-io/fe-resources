@@ -1,0 +1,17 @@
+{
+  "name": "MODULE_NAME",
+  "version": "1.0.0",
+  "description": "Build and lint .es6.js using core standards",
+  "license": "ISC",
+  "scripts": {
+    "//": "npm run lint:js",
+    "lint:js": "NODE_PATH=$NODE_PATH:$PROJECT_ROOT/docroot/core/node_modules node $PROJECT_ROOT/docroot/core/node_modules/eslint/bin/eslint.js --ext .es6.js --config $PROJECT_ROOT/docroot/core/.eslintrc.json .",
+    "//": "npm run build:js",
+    "build:js": "NODE_PATH=$NODE_PATH:$PROJECT_ROOT/docroot/core/node_modules node $PROJECT_ROOT/docroot/core/scripts/js/babel-es6-build.js",
+    "//": "npm run watch:js",
+    "watch:js": "NODE_PATH=$NODE_PATH:$PROJECT_ROOT/docroot/core/node_modules node $PROJECT_ROOT/docroot/core/scripts/js/babel-es6-watch.js",
+    "//": "npm run serve:js",
+    "serve:js": "npm run lint:js && npm run build:js"
+  },
+  "prettier": "../../../core/.prettierrc.json"
+}
