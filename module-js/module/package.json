@@ -7,11 +7,22 @@
     "//": "npm run lint:js",
     "lint:js": "NODE_PATH=$NODE_PATH:$PROJECT_ROOT/docroot/core/node_modules node $PROJECT_ROOT/docroot/core/node_modules/eslint/bin/eslint.js --ext .es6.js --config $PROJECT_ROOT/docroot/core/.eslintrc.json .",
     "//": "npm run build:js",
-    "build:js": "NODE_PATH=$NODE_PATH:$PROJECT_ROOT/docroot/core/node_modules node $PROJECT_ROOT/docroot/core/scripts/js/babel-es6-build.js",
-    "//": "npm run watch:js",
-    "watch:js": "NODE_PATH=$NODE_PATH:$PROJECT_ROOT/docroot/core/node_modules node $PROJECT_ROOT/docroot/core/scripts/js/babel-es6-watch.js",
-    "//": "npm run serve:js",
+    "build:js": "$PROJECT_ROOT/docroot/core/node_modules/.bin/cross-env BABEL_ENV=legacy NODE_PATH=$NODE_PATH:$PROJECT_ROOT/docroot/core/node_modules node $PROJECT_ROOT/docroot/core/scripts/js/babel-es6-build.js",
     "serve:js": "npm run lint:js && npm run build:js"
   },
-  "prettier": "../../../core/.prettierrc.json"
+  "prettier": "../../../core/.prettierrc.json",
+  "babel": {
+    "env": {
+      "legacy": {
+        "presets": [
+          [
+            "env",
+            {
+              "modules": false
+            }
+          ]
+        ]
+      }
+    }
+  }
 }
