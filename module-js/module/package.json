@@ -16,7 +16,7 @@
       "legacy": {
         "presets": [
           [
-            "env",
+            "@babel/presets-env", // This is "env" in D8
             {
               "modules": false
             }
